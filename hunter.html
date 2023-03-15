@@ -105,17 +105,23 @@
             mouseRow=Math.floor(mouseLocation/6),
             mouseColumn=Math.floor(mouseLocation%6);
 
-            if((Math.abs(lastLocationRow-catRow)<=1) && (Math.abs(lastLocationColumn-catColumn)<=1)){
-                document.getElementById("help").innerHTML="Help report: meow"
-            }
-            else if((Math.abs(lastLocationRow-mouseRow)<=1) && (Math.abs(lastLocationColumn-mouseColumn)<=1)){
-                document.getElementById("help").innerHTML="Help report: squeak"
+            if(gameOver==true){
+                return;
             }
             else{
-                document.getElementById("help").innerHTML="Help report: sorry, no help available"
+                if((Math.abs(lastLocationRow-catRow)<=1) && (Math.abs(lastLocationColumn-catColumn)<=1)){
+                    document.getElementById("help").innerHTML="Help report: meow"
+                }
+                else if((Math.abs(lastLocationRow-mouseRow)<=1) && (Math.abs(lastLocationColumn-mouseColumn)<=1)){
+                    document.getElementById("help").innerHTML="Help report: squeak"
+                }
+                else{
+                    document.getElementById("help").innerHTML="Help report: sorry, no help available"
+                }
+                penalty+=2;
+                document.getElementById("penalty").innerHTML="Penalty is "+penalty+"."
             }
-            penalty+=2;
-            document.getElementById("penalty").innerHTML="Penalty is "+penalty+"."
+                
         }
     </script>
 </html>
