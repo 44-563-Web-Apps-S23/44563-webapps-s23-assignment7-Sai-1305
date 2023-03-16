@@ -24,12 +24,20 @@
       reactTime = Date.now();
       console.log(reactTime);
     }
-
-    function startTime(){
-      for(let i=0;i<9;i++){
-        setTimeout(()=>{
-          document.getElementById("counter").innerHTML = i
-        },((8-i)*1000))
+    function getRandomInt(min,max){
+      min=Math.ceil(min);
+      max=Math.floor(max);
+      Value=Math.floor(Math.random()*(max-min)+min);
+      return Value
+    }
+        
+    randomCountdown= getRandomInt(2,10)
+    function startTime() {
+      randomCountdown= getRandomInt(2,10)
+      for (let index = 0; index < randomCountdown; index++) {
+        setTimeout(function(){
+          document.getElementById('counter').innerHTML = index
+        }, (randomCountdown-1-index) * 1000)
       }
       setTimeout(()=>{
         if(reactTime==undefined){
@@ -41,7 +49,7 @@
           document.getElementById("target").innerHTML="Time was "+elapsed_time;
         }
       
-      },(8000))
+      },(randomCountdown-1)*1000)
     }
 
   </script>
